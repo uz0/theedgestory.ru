@@ -24,18 +24,22 @@ html {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 40px 20px;
   background: #020107;
+  position: relative;
+  overflow: hidden;
 }
 
 .slide-content {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1920px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .site-header {
@@ -57,10 +61,11 @@ html {
 }
 
 .content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 40px;
-  align-items: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 .principles-list {
@@ -68,6 +73,8 @@ html {
   flex-direction: column;
   gap: 32px;
   max-width: 714px;
+  position: relative;
+  z-index: 2;
 }
 
 .principle-item {
@@ -149,32 +156,36 @@ html {
 }
 
 .visual-decoration {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50vw;
+  max-width: 900px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
   display: none;
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  justify-self: end;
 }
 
 .decoration-image {
   width: 100%;
   height: auto;
   object-fit: contain;
-  opacity: 0.7;
-  filter: saturate(1.2) brightness(0.9);
+  opacity: 0.8;
 }
 
 @media (min-width: 768px) {
   .slide-container {
-    padding: 60px 40px;
+    padding: 80px 60px;
+    align-items: center;
   }
 
   .slide-content {
-    gap: 60px;
+    gap: 80px;
   }
 
   .content-wrapper {
-    grid-template-columns: 1fr auto;
     gap: 60px;
   }
 
@@ -189,32 +200,24 @@ html {
 
 @media (min-width: 1024px) {
   .slide-container {
-    padding: 80px 60px;
+    padding: 100px 80px;
   }
 
   .slide-content {
-    gap: 80px;
+    gap: 100px;
   }
 
   .content-wrapper {
     gap: 80px;
-  }
-
-  .visual-decoration {
-    max-width: 600px;
   }
 }
 
 @media (min-width: 1440px) {
   .slide-container {
-    padding: 100px 80px;
+    padding: 120px 100px;
   }
 
   .content-wrapper {
     gap: 100px;
-  }
-
-  .visual-decoration {
-    max-width: 700px;
   }
 }
